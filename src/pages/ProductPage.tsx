@@ -12,7 +12,7 @@ export default function ProductPage() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://localhost:7056/MainContorler"
+          "https://localhost:7193/api/Product/tproduct"
         );
         const newProducts = response.data.result.map(
           (v: IProductModel) => new ProductModel(v)
