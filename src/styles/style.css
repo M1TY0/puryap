@@ -213,3 +213,10 @@
     width: 100%;
   }
 }
+
+.product-card img {
+  width: 100%; /* Ensures the image fills the card width */
+  height: 400px; /* Sets a consistent height */
+  object-fit: cover; /* Maintains aspect ratio and ensures no distortion */
+  border-radius: 5px; /* Optional: Adds rounded corners */
+}

@@ -47,7 +47,12 @@ export default function Product() {
   return (
     <div className="product-detail">
       <div className="product-image-container">
-        <img src={product.photo} alt={product.name} className="product-image" />
+        <img 
+          src={`../images/products_images/${product.photo}_images/${product.code}_1.jpg`} 
+          alt={`images/products_images/${product.photo}_images/${product.code}_1.jpg`} 
+          className="product-image" 
+          style={{ width: "50%", height: "auto" }} // Adjust width and maintain aspect ratio
+        />
       </div>
       <div className="product-info-container">
         <h1 className="product-name">{product.name}</h1>

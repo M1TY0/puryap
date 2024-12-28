@@ -1,18 +1,41 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import Carousel from "react-bootstrap/Carousel";
 import IProductModel from "../models/IProductModel";
-import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import StringUtil from "../utilities/StringUtil";
+import "../styles/style.css";
 
 function ProductCard({ id, name, code, info, type, numberOfPhotos, photo, subType, description }: IProductModel) {
-  const maxWords = 60;
-//Card.Img variant="top" src="images/Ultra Şeffaf Epoksi Döküm Reçinesi 15 Kg_images/PUREPOXY130-15 Kg_1.jpg" alt={name} />
   return (
-    <Card className="product-card" style={{ minWidth: "300px", minHeight: "205px", maxWidth: "400px", maxHeight: "666px", }}>
-      <Card.Img variant="top" src={`${photo}/${code}_1.jpg`} alt={`${photo}/${code}_1.jpg`} />
+    <Card
+      className="product-card"
+      style={{
+        minWidth: "400px",
+        minHeight: "205px",
+        maxWidth: "400px",
+        maxHeight: "auto",
+        padding: "10px",
+      }}
+    >
+      <Carousel className="product-carousel" interval={null}>
+        {Array.from({ length: numberOfPhotos }, (_, index) => {
+          const imageNumber = index + 1;
+          const imageUrl = `images/products_images/${photo}_images/${code}_${imageNumber}.jpg`;
+          return (
+            <Carousel.Item key={imageNumber}>
+              <img
+                src={imageUrl}
+                alt={`Image ${imageNumber} for ${name}`}
+                className="d-block w-100 product-carousel-image"
+                style={{ height: "360px", objectFit: "cover" }}
+              />
+            </Carousel.Item>
+          );
+        })}
+      </Carousel>
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
+        <Card.Title>{StringUtil.shortenText(name, 30)}</Card.Title>
         <Link to={`/products/${id}`}>
           <Button variant="primary">Read more</Button>
         </Link>
