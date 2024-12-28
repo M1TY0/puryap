@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import IProductModel from "../models/IProductModel";
+import Carousel from "react-bootstrap/Carousel";
 
 export default function Product() {
   const { id } = useParams<{ id: string }>();
@@ -47,12 +48,22 @@ export default function Product() {
   return (
     <div className="product-detail">
       <div className="product-image-container">
-        <img 
-          src={`../images/products_images/${product.photo}_images/${product.code}_1.jpg`} 
-          alt={`images/products_images/${product.photo}_images/${product.code}_1.jpg`} 
-          className="product-image" 
-          style={{ width: "50%", height: "auto" }} // Adjust width and maintain aspect ratio
-        />
+        <Carousel interval={null} className="product-carousel">
+          {Array.from({ length: product.numberOfPhotos }, (_, index) => {
+            const imageNumber = index + 1;
+            const imageUrl = `../images/products_images/${product.photo}_images/${product.code}_${imageNumber}.jpg`;
+            return (
+              <Carousel.Item key={imageNumber}>
+                <img
+                  src={imageUrl}
+                  alt={`Image ${imageNumber} for ${product.name}`}
+                  className="d-block w-100 product-carousel-image"
+                  style={{ height: "700px", objectFit: "contain" }} // Resize the image to a smaller size
+                />
+              </Carousel.Item>
+            );
+          })}
+        </Carousel>
       </div>
       <div className="product-info-container">
         <h1 className="product-name">{product.name}</h1>

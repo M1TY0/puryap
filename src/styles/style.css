@@ -220,3 +220,17 @@
   object-fit: cover; /* Maintains aspect ratio and ensures no distortion */
   border-radius: 5px; /* Optional: Adds rounded corners */
 }
+
+/* Make the carousel arrows black */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black; /* Change this to the desired color */
+}
+
+/* Optional: Change the size of the arrows if needed */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 40px; /* Adjust the size of the arrows */
+  height: 40px;
+  border-radius: 50%; /* Optional: Make the arrows circular */
+}
