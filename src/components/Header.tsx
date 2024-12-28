@@ -201,21 +201,6 @@ function Header() {
               <NavDropdown.Item>Течна пластмаса</NavDropdown.Item>
               <NavDropdown.Item>Машини</NavDropdown.Item>
             </NavDropdown>
-
-            <NavDropdown
-              title="Сектори"
-              id="basic-nav-dropdown"
-              style={{ marginRight: "10px" }}
-            >
-              <NavDropdown.Item>Строителство и строителство</NavDropdown.Item>
-              <NavDropdown.Item>Инфраструктура</NavDropdown.Item>
-              <NavDropdown.Item>Мебели</NavDropdown.Item>
-              <NavDropdown.Item>Отбранителна индустрия</NavDropdown.Item>
-              <NavDropdown.Item>Афтомобилна</NavDropdown.Item>
-              <NavDropdown.Item>Хоби изкуство</NavDropdown.Item>
-              <NavDropdown.Item>Морски</NavDropdown.Item>
-              <NavDropdown.Item>Транспорт</NavDropdown.Item>
-            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
